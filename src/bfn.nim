@@ -60,6 +60,10 @@ var instructionToProc = {
   }.newTable
 
 proc main() =
+  if paramCount() < 1:
+    stderr.writeLine("Please specify a file containing Brainfuck code.")
+    system.quit(1)
+
   instructions = paramStr(1).readFile()
 
   while true:
